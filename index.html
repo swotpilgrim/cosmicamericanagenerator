@@ -1,51 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosmic Americana Character Generator</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
-    <div class="space-flying-element">🚀</div>
-    <div class="space-flying-element">☄️</div>
-    <div class="space-flying-element">🌠</div>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;600&family=Bungee&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cosmic-styles.css">
 </head>
 <body>
-    <h1>COSMIC AMERICANA CHARACTER GENERATOR</h1>
-    
-    <div class="container" id="sections-container">
-        <!-- Sections will be dynamically generated here -->
-    </div>
-    
-    <button id="generate-btn">GENERATE GALAXY HIGH CHARACTER!</button>
-    
-    <div id="result">
-        <h2 class="result-title">YOUR COSMIC AMERICANA CHARACTER!</h2>
-        <div id="result-content">
-            <!-- Results will be dynamically generated here -->
-        </div>
-        <button id="reset-btn">CREATE ANOTHER CHARACTER</button>
+    <div class="container">
+        <header>
+            <h1>Cosmic Americana Character Generator</h1>
+            <div class="neon-sign">RETROFUTURE MEETS 1950s AMERICANA</div>
+        </header>
+
+        <main>
+            <div class="character-form">
+                <div class="form-group">
+                    <label for="speciesType">Species/Body Type</label>
+                    <select id="speciesType">
+                        <option value="">Select a species type</option>
+                        <!-- Will be populated by JavaScript -->
+                    </select>
+                </div>
+
+                <div class="form-group" id="archetypesGroup">
+                    <label for="archetypes">Complete Archetypes (optional)</label>
+                    <select id="archetypes">
+                        <option value="">Create your own custom character</option>
+                        <!-- Will be populated by JavaScript -->
+                    </select>
+                    <p class="hint">Select a complete archetype or customize below</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="personalityType">Personality Type</label>
+                    <select id="personalityType">
+                        <!-- Will be populated by JavaScript -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="hairstyle">Hairstyle</label>
+                    <select id="hairstyle">
+                        <!-- Will be populated by JavaScript -->
+                    </select>
+                </div>
+
+                <div class="form-sections">
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="fashionStyle">Fashion Style</label>
+                            <select id="fashionStyle">
+                                <!-- Will be populated by JavaScript -->
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="outfitGroup">
+                            <label for="outfitType">Complete Outfit</label>
+                            <select id="outfitType">
+                                <!-- Will be populated by JavaScript -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="footwear">Footwear</label>
+                            <select id="footwear">
+                                <!-- Will be populated by JavaScript -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Accessories (select up to 3)</label>
+                    <div class="accessory-container" id="accessoryContainer">
+                        <!-- Checkboxes will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Special Abilities (select up to 2)</label>
+                    <div class="feature-container" id="featureContainer">
+                        <!-- Checkboxes will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Color Scheme</label>
+                    <div class="color-scheme-container">
+                        <div class="color-row">
+                            <label for="mainColor">Main:</label>
+                            <select id="mainColor">
+                                <!-- Will be populated by JavaScript -->
+                            </select>
+                        </div>
+                        <div class="color-row">
+                            <label for="secondaryColor">Secondary:</label>
+                            <select id="secondaryColor">
+                                <!-- Will be populated by JavaScript -->
+                            </select>
+                        </div>
+                        <div class="color-row">
+                            <label for="accentColor">Accent:</label>
+                            <select id="accentColor">
+                                <!-- Will be populated by JavaScript -->
+                            </select>
+                        </div>
+                        <div class="color-button">
+                            <button type="button" id="autoColorBtn" class="secondary-button">Auto Pick Retrofuture Color Scheme</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button id="generateBtn">Generate Character</button>
+                    <button id="randomizeBtn">Randomize All</button>
+                    <button id="resetBtn">Reset Form</button>
+                </div>
+            </div>
+
+            <div class="character-output">
+                <h2>Your Cosmic Americana Character</h2>
+                <div id="characterDescription" class="description-box">
+                    Your cosmic character description will appear here after you generate a character.
+                </div>
+                <div class="visual-notes">
+                    <h3>Visual Elements</h3>
+                    <ul id="visualElements"></ul>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2025 Cosmic Americana Character Generator | Inspired by 1950s Retrofuturism and Atomic Age Aesthetics</p>
+        </footer>
     </div>
 
-    <!-- Add some decorative atomic age elements -->
-    <div class="atomic-orbit" style="top: 50px; right: 10%;"></div>
-    <div class="atomic-orbit" style="bottom: 100px; left: 5%;"></div>
-    <div class="atomic-orbit" style="top: 30%; left: 10%;"></div>
-    <div class="atomic-orbit" style="top: 20%; right: 15%;"></div>
-
-    <!-- Make sure descriptions.js is loaded BEFORE app.js -->
-    <script src="config.js"></script>
-    <script src="descriptions.js"></script>
-    <script src="app.js"></script>
-    
-    <!-- Add a footer with retro styling -->
-    <footer>
-        <div class="footer-content">
-            <p>© 2025 Cosmic Americana Character Generator</p>
-            <p>A Galaxy High-inspired project blending 1950s Americana, High School Drama, and Retrofuturism</p>
-        </div>
-    </footer>
+    <script src="cosmic-config.js"></script>
+    <script src="cosmic-descriptions.js"></script>
+    <script src="cosmic-app.js"></script>
 </body>
 </html>
